@@ -13,4 +13,4 @@ The sites scanned in order from oldest to most recent include:
 [H] = high 
 [M] = medium
 [L] = low
-[I} = informational 
+[I] = informational 
