@@ -10,7 +10,7 @@ The sites scanned in order from oldest to most recent include:
 5. ctagold
 
 ### Alert Classifications  
-[H] = high 
-[M] = medium
-[L] = low
-[I] = informational 
+[H]=high 
+[M]=medium
+[L]=low
+[I]=informational 
