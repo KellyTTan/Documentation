@@ -8,3 +8,9 @@ The sites scanned in order from oldest to most recent include:
 3. invoice pre approval
 4. gco
 5. ctagold
+
+### Alert Classifications  
+[H] = high 
+[M] = medium
+[L] = low
+[I} = informational 
