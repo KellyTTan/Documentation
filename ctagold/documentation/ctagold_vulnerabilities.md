@@ -3,7 +3,7 @@ The following are new alerts that have come up on the CTA Gold Scans for Prospec
 This report features our first high alert (SQL Injection) and a few other median vulnerabilities. 
 
 ## [H] SQL Injection
-- Occurs when a SQL query is injected as input data
+- Occurs when a SQL query is injected as input data by an unauthorized user
     - The injected query affects the execution of predefined SQL commands
 - Successful SQL injection may lead to:
     - Reading sensitive data from databases
