@@ -26,6 +26,8 @@ The following are median alerts that are found after conducting scans on invoice
     - Checking if the request has a valid session cookie is not enough
     - CSRF request **wont** have this valid unique identifier
     - "By checking the page rendering we need to see if any unique identifiers are appended to the links rendered by the application in the user’s browser. If there is no unique identifier relating to each HTTP request to tie a HTTP request to the user, we are **vulnerable**."
+    - Upon commiting to a huge transaction, display an additional decision to the user such as entering a password. 
+    - The CSRF attacker wouldn't know the password therefore the transaction would not take place.
       
 ***
 ## Cross Domain Misconfiguration 
