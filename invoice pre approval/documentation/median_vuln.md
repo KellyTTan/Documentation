@@ -22,8 +22,10 @@ The following are median alerts that are found after conducting scans on invoice
   - Consider implementing different methods of mitigations
       - User interaction-based protection 
       - SameSite Cookie Attribute 
-#### How to locate potentially vulnerable code:
-"By checking the page rendering we need to see if any unique identifiers are appended to the links rendered by the application in the user’s browser. If there is no unique identifier relating to each HTTP request to tie a HTTP request to the user, we are **vulnerable**."
+  - **Check if a unique identifier is sent with every HTTP request sent to the application**
+    - Checking if the request has a valid session cookie is not enough
+    - CSRF request **wont** have this valid unique identifier
+    - "By checking the page rendering we need to see if any unique identifiers are appended to the links rendered by the application in the user’s browser. If there is no unique identifier relating to each HTTP request to tie a HTTP request to the user, we are **vulnerable**."
       
 ***
 ## Cross Domain Misconfiguration 
