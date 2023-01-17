@@ -27,7 +27,7 @@ The following are median alerts that are found after conducting scans on invoice
 #### Detection:
   - **Check if a unique identifier is sent with every HTTP request sent to the application**
     - Checking if the request has a valid session cookie is not enough
-    - CSRF request **wont** have this valid unique identifier
+    - CSRF request **won't** have this valid unique identifier
     - "By checking the page rendering we need to see if any unique identifiers are appended to the links rendered by the application in the user’s browser. If there is no unique identifier relating to each HTTP request to tie a HTTP request to the user, we are **vulnerable**."
       
 ***
