@@ -27,8 +27,9 @@ This report features our first high alert (SQL Injection) and a few other median
         - `myStmt.setString(2, password);`
 - Use properly constructed stored procedures
 - Use allow list (whitelist) input validation
-    - Defines what IS authorized
-    - Everything else that is not defined is **not** authorized 
+    - Defines what IS authorized and everything else that is not defined is **not** authorized 
+- Ensure applications do not return detailed error messages [[ref]](https://web.archive.org/web/20151005235207/http://www.net-security.org/dl/articles/IntegrigyIntrotoSQLInjectionAttacks.pdf)
+    - The more information found in error messages, the more useful it is to the attacker. 
 ***
 
 ## [M] Content Security Policy (CSP) Header Not Set
