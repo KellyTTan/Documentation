@@ -52,8 +52,13 @@ This report features our first high alert (SQL Injection) and a few other median
 - Alert appears when `X-Frame-Options` or`Content-Securty-Policy` header is not being used 
 - `X-Frame-Options` header is used to indicate whether or not if a browser is allowed to render a page in a `<frame>`, `<iframe>`, `<embed>` or `<object>`
     - This is used to avoid click-jacking attacks by ensuring the content is not embedded into other sites
+    - The directives for this header include:
+        - `DENY`: The page cannot be displayed in a frame
+        - `SAMEORIGIN`: The page can only be displayed if all ancestor frames are the same origin to the page itself
+        - `ALLOW-FROM=url`: This directive is out of date and **should not** be used
+            - The `Content-Security-Policy` HTTP header has a `frame-ancestors` directive that can be used instead
 #### Preventions:
-- Ensure all sites uses one of the headers
+- Ensure all sites uses one of the headers with the appropriate values
 ***
 
 ## [M] Vulnerable JS Library
