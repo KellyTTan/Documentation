@@ -1,6 +1,6 @@
 # Alerts Genereated from CTA Gold Scans 
 The following are new alerts that have come up on the CTA Gold Scans for Prospect, Secondary Pre Approval, and Distribution pages.
-This report features our first high alert (SQL Injection) and a few other median vulnerabilities. 
+This report features our first high alert (SQL Injection) and a few other median vulnerabilities. The SQL Injection alert was found on the [Prospect page](https://github.com/KellyTTan/Documentation/blob/main/ctagold/reports%202022-11-29/gold_prospects_report.pdf). This alert was also speculated to be a false positive, further research on this can be found in this [documentation](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/sqli_research.md).
 
 ## [H] SQL Injection
 - Occurs when a SQL query is injected as input data by an unauthorized user
@@ -10,8 +10,8 @@ This report features our first high alert (SQL Injection) and a few other median
     - Modifying database data (insert/update/delete)
     - Execute admin operations 
 #### Preventions: 
-- Never concatenate data received from users
-- ALways use the most specific and restrictive data types 
+- **Never concatenate** data received from users
+- Always use the most specific and restrictive **data types** 
     - For instance, if your web app has a method for retrieving an instance based on its integer ID, don't have the method accept String as a parameter
 - Create **prepared statements** (parameterized queries)
     - Allows database to distinguish between code and data
@@ -25,10 +25,10 @@ This report features our first high alert (SQL Injection) and a few other median
         - `PreparedStatement statement = con.prepareStatement(query);`
         - `myStmt.setString(1, user);`
         - `myStmt.setString(2, password);`
-- Use properly constructed stored procedures
-- Use allow list (whitelist) input validation
+- Use properly constructed **stored procedures**
+- Use allow list (**whitelist**) input validation
     - Defines what IS authorized and everything else that is not defined is **not** authorized 
-- Ensure applications do not return detailed error messages [[ref]](https://web.archive.org/web/20151005235207/http://www.net-security.org/dl/articles/IntegrigyIntrotoSQLInjectionAttacks.pdf)
+- Ensure applications do not return **detailed error messages** [[ref]](https://web.archive.org/web/20151005235207/http://www.net-security.org/dl/articles/IntegrigyIntrotoSQLInjectionAttacks.pdf)
     - The more information found in error messages, the more useful it is to the attacker. 
 ***
 
@@ -37,7 +37,7 @@ This report features our first high alert (SQL Injection) and a few other median
 - CSP adds a layer of security to detect and mitigate certain types of attacks including:
     - XXS
     - Data Injection 
-- Can be used to specify which sources are allowed.
+- Can be used to specify which sources are allowed
 - Can restrict content by specifying server origins and script endpoints
 #### Preventions:
 - Set `Content-Securirty-Policy` to the correct values to control what resources the user is allowed to load for the page 
@@ -51,13 +51,13 @@ This report features our first high alert (SQL Injection) and a few other median
 ## [M] Missing Anti-Clickjacking Header
 - Alert appears when `X-Frame-Options` or`Content-Securty-Policy` header is not being used 
 - `X-Frame-Options` header is used to indicate whether or not if a browser is allowed to render a page in a `<frame>`, `<iframe>`, `<embed>` or `<object>`
-    - This is used to avoid click-jacking attacks by ensuring the content is no embedded into other sites
+    - This is used to avoid click-jacking attacks by ensuring the content is not embedded into other sites
 #### Preventions:
 - Ensure all sites uses one of the headers
 ***
 
 ## [M] Vulnerable JS Library
-- jquery version 1.11.3 is vulnerable 
+- jquery **version 1.11.3** is vulnerable 
 #### Preventions: 
 - Upgrade to the latest version of jquery 
-- Latest version: 3.6.2
+- **Latest version: 3.6.2**
