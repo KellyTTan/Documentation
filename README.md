@@ -23,4 +23,4 @@ The sites scanned in order from oldest to most recent include:
 - [Content Security Policy](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-content-security-policy-csp-header-not-set)
 - [Missing Anti-Clickjacking Header](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-missing-anti-clickjacking-header)
 - [Vulnerable JS Library](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-vulnerable-js-library)
-- [Cookie Vulerabilities](https://github.com/KellyTTan/Documentation/blob/main/invoice%20pre%20approval/documentation/cookie_vulnerabilities.md#alerts-web-cookies-owasp-zap)
+- [Cookie Vulnerabilities](https://github.com/KellyTTan/Documentation/blob/main/invoice%20pre%20approval/documentation/cookie_vulnerabilities.md#alerts-web-cookies-owasp-zap)
