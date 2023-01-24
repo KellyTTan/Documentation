@@ -1,6 +1,5 @@
 # Median Alerts Found on Invoice Pre-Approval [OWASP Zap]
-The following are median alerts that are found after conducting scans on invoice pre-approval pages. The two main alerts found are CSRF and Cross Domain Misconfiguration. The preventions for these alerts are listed for reference.
-
+The following are median alerts that are found after conducting scans on invoice pre-approval pages. The two main alerts found are Cross-Site Request Forgery and Cross Domain Misconfiguration. Other medium alerts are listed below along with their preventions. 
 
 ## Cross-Site Request Forgery (CSRF)
 - Aka one-click attack or session riding
@@ -28,11 +27,11 @@ The following are median alerts that are found after conducting scans on invoice
   - **Check if a unique identifier is sent with every HTTP request sent to the application** [[ref]](https://owasp.org/www-project-code-review-guide/reviewing-code-for-csrf-issues)
     - Checking if the request has a valid session cookie is not enough
     - CSRF request **won't** have this valid unique identifier
-    - "By checking the page rendering we need to see if any unique identifiers are appended to the links rendered by the application in the user’s browser. If there is no unique identifier relating to each HTTP request to tie a HTTP request to the user, we are **vulnerable**."
-      
+    - "By checking the page rendering we need to see if any unique identifiers are appended to the links rendered by the application in the user’s browser. If there is no unique identifier relating to each HTTP request to tie a HTTP request to the user, we are **vulnerable**."  
 ***
+
 ## Cross Domain Misconfiguration 
-- Occurs when CORS (Cross Origin Resource Sharing) is incorrectly configured on the server 
+- Occurs when CORS (**Cross Origin Resource Sharing**) is incorrectly configured on the server 
 - This leads to:
     - Malicious domains being able to send requests 
     - Allows credientials to be sent to untrusted soures 
