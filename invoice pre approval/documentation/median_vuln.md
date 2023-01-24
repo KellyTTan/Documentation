@@ -25,7 +25,7 @@ The following are median alerts that are found after conducting scans on invoice
   - Upon commiting to a huge transaction, display an additional decision to the user such as entering a password. 
   - The CSRF attacker wouldn't know the password therefore the transaction would not take place.
 #### Detection:
-  - **Check if a unique identifier is sent with every HTTP request sent to the application**
+  - **Check if a unique identifier is sent with every HTTP request sent to the application** [[ref]](https://owasp.org/www-project-code-review-guide/reviewing-code-for-csrf-issues)
     - Checking if the request has a valid session cookie is not enough
     - CSRF request **won't** have this valid unique identifier
     - "By checking the page rendering we need to see if any unique identifiers are appended to the links rendered by the application in the user’s browser. If there is no unique identifier relating to each HTTP request to tie a HTTP request to the user, we are **vulnerable**."
