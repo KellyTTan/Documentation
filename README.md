@@ -14,3 +14,6 @@ The sites scanned in order from oldest to most recent include:
 [M]=medium
 [L]=low
 [I]=informational 
+
+### Alerts covered in this documentation
+- [SQL Injection](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#h-sql-injection)
