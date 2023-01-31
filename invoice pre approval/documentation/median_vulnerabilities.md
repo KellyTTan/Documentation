@@ -1,7 +1,7 @@
 # Median Alerts Found on Invoice Pre-Approval [OWASP Zap]
 The following are median alerts that are found after conducting scans on invoice pre-approval pages. The two main alerts found are Cross-Site Request Forgery and Cross Domain Misconfiguration. Other medium alerts are listed below along with their preventions. 
 
-## Cross-Site Request Forgery (CSRF)
+## [M] Cross-Site Request Forgery (CSRF)
 - Aka one-click attack or session riding
 - Tricks already authenticated users to execute unwanted actions with the help of social engineering 
 - This may lead to:
@@ -30,7 +30,7 @@ The following are median alerts that are found after conducting scans on invoice
     - "By checking the page rendering we need to see if any unique identifiers are appended to the links rendered by the application in the user’s browser. If there is no unique identifier relating to each HTTP request to tie a HTTP request to the user, we are **vulnerable**."  
 ***
 
-## Cross Domain Misconfiguration 
+## [M] Cross Domain Misconfiguration 
 - Occurs when CORS (**Cross Origin Resource Sharing**) is incorrectly configured on the server 
 - This leads to:
     - Malicious domains being able to send requests 
@@ -47,14 +47,30 @@ The following are median alerts that are found after conducting scans on invoice
   - Ensure `Access-Control-Origin` is not excessively permissive 
       - This should **never** be set to "*" if the resource contains sensitive information 
       - **OR** remove all CORS headers entirely 
-
 ***
-## Other Vulnerability Alerts 
-- **Vulnerable JS library**: AngularJS version 1.4.3 is vulnerable
-    - Upgrade to the latest version 
-- **X-Frame-Options Header Not Set**: Occurs when server doesn't return `X-Frame-Options` header
-    - This can leave websites prone to clickjacking attacks 
-    - Ensure it is set on all web apges returned by the site
-- **Content Security Policy(CSP) Header Not Set**: CSP is an added layer of security 
-    - It is used to detect and mitigate certain attacks 
-    - `Content-Security-Policy` header must be properly configured
+
+## [M] Vulnerable JS library
+- AngularJS version 1.4.3 is vulnerable
+- Some of the vulnerabilities from using this version include [[ref]](https://security.snyk.io/package/npm/angular/1.4.3):
+    - XXS
+    - Prototype pollution
+    - DoS
+#### Preventions:
+- It is recommended to upgrade from AngularJS to Angular as all the new updates from Google will only go to Angluar
+    - Latest version of Angular: **v15**
+    - "One of the keys to a successful upgrade is to do it incrementally, by running the two frameworks side by side in the same application, and porting AngularJS components to Angular one by one." (Upgrading from AngularJS to Angular tuturoial can be found [here](https://angular.io/guide/upgrade))
+- The latest version or AngularJS is **1.8.3**
+***
+
+## [M] X-Frame-Options Header Not Set
+- Occurs when server doesn't return `X-Frame-Options` header
+- This can leave websites prone to clickjacking attacks 
+#### Preventions:
+- Ensure it is set on all web pages returned by the site
+***
+
+## [M] [Content Security Policy(CSP) Header Not Set](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-content-security-policy-csp-header-not-set)
+- CSP is an added layer of security 
+#### Preventions:
+- It is used to detect and mitigate certain attacks 
+- `Content-Security-Policy` header must be properly configured
