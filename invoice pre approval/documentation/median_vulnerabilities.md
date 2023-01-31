@@ -70,7 +70,3 @@ The following are median alerts that are found after conducting scans on invoice
 ***
 
 ## [M] [Content Security Policy(CSP) Header Not Set](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-content-security-policy-csp-header-not-set)
-- CSP is an added layer of security 
-#### Preventions:
-- It is used to detect and mitigate certain attacks 
-- `Content-Security-Policy` header must be properly configured
