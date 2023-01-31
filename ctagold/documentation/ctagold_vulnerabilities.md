@@ -62,7 +62,8 @@ This report features our first high alert (SQL Injection) and a few other median
 ***
 
 ## [M] Vulnerable JS Library
-- jquery **version 1.11.3** is vulnerable 
+- jquery **version 1.11.3** is vulnerable [[ref]](https://security.snyk.io/package/npm/jquery/1.11.3)
+- This version is prone to XSS and prototype pollution.
 #### Preventions: 
 - Upgrade to the latest version of jquery 
 - **Latest version: 3.6.2**
