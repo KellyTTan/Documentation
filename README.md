@@ -22,5 +22,7 @@ The sites scanned in order from oldest to most recent include:
 - [Buffer Overflow](https://github.com/KellyTTan/Documentation/blob/main/gco/documentation/gco_vulnerabilities.md#m-buffer-overflow)
 - [Content Security Policy](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-content-security-policy-csp-header-not-set)
 - [Missing Anti-Clickjacking Header](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-missing-anti-clickjacking-header)
-- [Vulnerable JS Library](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-vulnerable-js-library)
+- Vulnerable JS Library
+  - [Jquery](https://github.com/KellyTTan/Documentation/blob/main/ctagold/documentation/ctagold_vulnerabilities.md#m-vulnerable-js-library)
+  - [AngularJS](https://github.com/KellyTTan/Documentation/blob/main/invoice%20pre%20approval/documentation/median_vulnerabilities.md#m-vulnerable-js-library)
 - [Cookie Vulnerabilities](https://github.com/KellyTTan/Documentation/blob/main/invoice%20pre%20approval/documentation/cookie_vulnerabilities.md#alerts-web-cookies-owasp-zap)
