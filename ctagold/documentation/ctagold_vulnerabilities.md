@@ -18,7 +18,7 @@ This report features our first high alert (SQL Injection) and a few other median
     - One of the best and easiest forms of prevention
     - Ensures the attacker is not able to change the intent of a query
     - Placeholders are used instead of the inputed values, ensuring the values themselves are never part of the text of the query
-    - Crating a prepared statement example:
+    - Creating a prepared statement example:
         - `String user = "user"; // comes from user`
         - `String password = "password"; // comes from user, gets hashed, etc`
         - `String query = SELECT * FROM users WHERE user = ? AND password = ?";`
