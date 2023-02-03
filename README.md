@@ -8,6 +8,9 @@ The sites scanned in order from oldest to most recent include:
 3. invoice pre approval
 4. gco
 5. ctagold
+6. sap_invoice
+7. cta_financial
+8. cta_fleet
 
 ### Alert Classifications  
 [H]=high 
