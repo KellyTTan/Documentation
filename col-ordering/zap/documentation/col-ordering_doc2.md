@@ -1,1 +1,1 @@
-hi
+revised documentation example
