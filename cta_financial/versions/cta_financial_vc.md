@@ -1,9 +1,9 @@
 # Version Control
-#### Title: CTA Financial Documentation
-#### Description: Documentation contains alert information and preventions based on Zap scans. 
-#### Created By: Kelly T
-#### Date Created : 2/2/2023
-#### Maintained By: Kelly T
+**Title:** CTA Financial Documentation\
+**Description:** Documentation contains alert information and preventions based on Zap scans.\
+**Created By:** Kelly T\
+**Date Created:** 2/2/2023\
+**Maintained By:** Kelly T
 ***
 
 | Version Number | Modified By | Modifications Made | Date Modified | Status |
