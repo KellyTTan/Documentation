@@ -62,7 +62,17 @@ try {
 ```
 #### Solution 
 - Do not enable debug features on production servers.
+- Compliant solution:
+  - Loggers should be used (instead of `printStackTrace`) to print throwables:
 
+
+```
+try {
+  /* ... */
+} catch(Exception e) {
+  LOGGER.log("context", e); // Compliant
+}
+```
 ***
 ### [L] Others 
 - Fetching external resources, for example from a CDN, without verifying their integrity could impact the security of an application if the CDN gets compromised and resources are replaced by malicious ones. 
@@ -77,6 +87,10 @@ try {
 - Implement resources integrity checks for all static resources 
   - (where "static" means that the resource's content doesn't change dynamically based on the browser)
 - Use versioned resources instead of using "latest" version of the resources
+- Compliant solution:
+```
+<script src="https://cdnexample.com/script.js" integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"></script> <!-- Compliant: integrity value should be replaced with the digest of the expected resource -->
+```
 ***
 
 ## Vulnerabilities 
