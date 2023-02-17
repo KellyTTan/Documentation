@@ -1,8 +1,8 @@
 # Col-Ordering SonarQube Documentation 
 This document lists the Security Hostspots for Col-Ordering. SonarQube did not list any vulnerabilities on this page.
-- [H] [CSRF](https://github.com/KellyTTan/Documentation/edit/main/col-ordering/sonarQube/documentation/test.md#h-cross-sit-request-forgery-csrf)
-- [L] [Insecure Configuration](https://github.com/KellyTTan/Documentation/edit/main/col-ordering/sonarQube/documentation/test.md#l-insecure-configuration) 
-- [L] [Others](https://github.com/KellyTTan/Documentation/edit/main/col-ordering/sonarQube/documentation/test.md#l-others) 
+- [H] [CSRF](https://github.com/KellyTTan/Documentation/blob/main/col-ordering/sonarQube/documentation/col-ordering_sonarQube.md#security-hotspots)
+- [L] [Insecure Configuration](https://github.com/KellyTTan/Documentation/blob/main/col-ordering/sonarQube/documentation/col-ordering_sonarQube.md#l-insecure-configuration) 
+- [L] [Others](https://github.com/KellyTTan/Documentation/blob/main/col-ordering/sonarQube/documentation/col-ordering_sonarQube.md#l-others) 
 
 ## Security Hotspots 
 ### [H] Cross-Sit Request Forgery (CSRF)
@@ -65,7 +65,19 @@ try {
 
 ***
 ### [L] Others 
-
+- Fetching external resources, for example from a CDN, without verifying their integrity could impact the security of an application if the CDN gets compromised and resources are replaced by malicious ones. 
+- Resources integrity feature will block resources inclusion into an application if the pre-computed digest of the expected resource doesn't match with the digest of the retrieved resource.
+- **This is a risk if**
+  - The resources are fetched from external CDNs.
+#### Sensitive Code Example
+```
+<script src="https://cdnexample.com/script.js"></script> <!-- Sensitive -->
+```
+#### Solutions
+- Implement resources integrity checks for all static resources 
+  - (where "static" means that the resource's content doesn't change dynamically based on the browser)
+- Use versioned resources instead of using "latest" version of the resources
+***
 
 ## Vulnerabilities 
 SonarQube listed no vulnerabilities for col-ordering.
