@@ -6,6 +6,33 @@ This document lists the Security Hostspots for Col-Ordering. SonarQube did not l
 
 ## Security Hotspots 
 ### [H] Cross-Sit Request Forgery (CSRF)
+#### (1) To review: Make sure allowing safe and unsafe HTTP methods is safe here.
+```
+            }
+        }
+    }
+    @Trace
+    @RequestMapping(value="/customers/shipto", produces= MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public SelectableCiteCustomers getShipToCustomerList(@AuthenticationPrincipal CGUserDetails loggedInUser) {
+        String customerNumber = loggedInUser.getCustomerDetails().getNumber();
+        String salesOrg = loggedInUser.getCustomerDetails().getMarketDetails().getSalesOrganization();
+```
+#### (2) To review: Make sure allowing safe and unsafe HTTP methods is safe here.
+```
+     * 
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping(value = "/error")
+    public ModelAndView error(@AuthenticationPrincipal CGUserDetails loggedInUser, HttpServletRequest request, HttpServletResponse response) {
+        // Appropriate HTTP response code (e.g. 404 or 500) is automatically set by Spring. 
+        // Here we just define response body.
+    	//ServletWebRequest servletWebRequest = new ServletWebRequest(request);
+       // Map<String, Object> errorAttributes = getErrorAttributes(servletWebRequest, true);
+```
+
 - An HTTP method is safe when used to perform a read-only operation, such as retrieving information. 
   - In contrast, an **unsafe HTTP method is used to change the state of an application**, for instance to update a user's profile on a web application.
 - Common **safe** HTTP methods are `GET`, `HEAD`, or `OPTIONS`.
@@ -42,6 +69,18 @@ String delete2(@RequestParam("id") String id) {
 ```
 ***
 ### [L] Insecure Configuration 
+#### To review: Make sure this debug feature is deactivated before delivering the code in production.
+```
+        try {
+            retVal = sdf.parse(dateString);
+        } catch (Exception e) {
+            // unable to parse the date
+            e.printStackTrace();
+            logger.debug("error parsing date: {}",dateString);
+        }
+        return retVal;
+    }
+```
 - Delivering code in production with **debug features activated is security-sensitive**. It has led in the past to the following vulnerabilities:
   - [CVE-2013-2006](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2013-2006): OpenStack Identity (Keystone) Grizzly 2013.1.1 logs admin tokens and LDAP passwords in plaintext when debug mode is enabled.
   - [CVE-2015-5306](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-5306): OpenStack Ironic Inspector allowed remote attackers to access the Flask console and execute arbitrary Python code by triggering an error when debug mode was enabled.
@@ -75,6 +114,33 @@ try {
 ```
 ***
 ### [L] Others 
+#### (1) To review: Make sure not using resource integrity feature is safe here.
+```
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+		<title>contionlinecontact.com</title>
+						
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>	
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">	
+```
+#### (2) To review: Make sure not using resource integrity feature is safe here.
+```
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	
+		<title>contionlinecontact.com</title>
+						
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>	
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">		
+			
+		<link rel="stylesheet" type="text/css" href="/cite/resources/style/main-29de97ce.css"/>
+```
 - Fetching external resources, for example from a CDN, without verifying their integrity could impact the security of an application if the CDN gets compromised and resources are replaced by malicious ones. 
 - Resources integrity feature will block resources inclusion into an application if the pre-computed digest of the expected resource doesn't match with the digest of the retrieved resource.
 - **This is a risk if**
