@@ -3,7 +3,7 @@ This document lists the Security Hostspots for Invoice Pre-Approval. SonarQube d
 - [H] [CSRF](https://github.com/KellyTTan/Documentation/blob/main/invoice_pre_approval/sonarQube/documentation/invoice_preapproval_sonarQube.md#h-cross-sit-request-forgery-csrf)
 
 ## Security Hotspots 
-### [H] Cross-Sit Request Forgery (CSRF)
+### [H] Cross-Site Request Forgery (CSRF)
 #### (1) To review: Make sure allowing safe and unsafe HTTP methods is safe here.
 ```
  *
