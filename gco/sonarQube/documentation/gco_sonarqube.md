@@ -1,6 +1,11 @@
 # GCO SonarQube Documentation 
 This document lists the Security Hostspots and vulnerabilities for GCO. 2 vulnerabilities and 5 instances of CSRF were found.
-- [H] [CSRF](https://github.com/KellyTTan/Documentation/blob/main/invoice_pre_approval/sonarQube/documentation/invoice_preapproval_sonarQube.md#h-cross-sit-request-forgery-csrf)
+- Security Hotspots: [H] [CSRF]()
+    - [Safe and unsafe HTTP methods]()
+    - [Spring Security's CSRF protection]()
+- Vulnerabilities: 
+    - [XML parsers should not be vulnerable to XXE attacks]()
+    - [Basic authentication should not be used]()
 
 ## Security Hotspots 
 ### [H] Cross-Site Request Forgery (CSRF)
@@ -114,4 +119,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 ***
 
 ## Vulnerabilities 
-SonarQube listed no vulnerabilities for invoice pre-approval.
+### (1) Basic authentication should not be used
+src/main/java/com/conti/cite/gold/config/WebServiceMessageSenderWithAuth.java
+```
+        Base64.Encoder enc = Base64.getEncoder();
+        String userpassword = username + ":" + password; // change to a real user and password
+        String encodedAuthorization = enc.encodeToString(userpassword.getBytes());
+        connection.setRequestProperty("Authorization", "Basic " + encodedAuthorization);
+```
+- Use a more secure method than basic authentication.
+- Basic authentication's only means of obfuscation is Base64 encoding. 
+- Since Base64 encoding is easily recognized and reversed, it offers only the thinnest veil of protection to your users, and should not be used.
+
+### (2) XML parsers should not be vulnerable to XXE attacks
+src/main/java/com/conti/cite/gold/config/HadoopHiveConfig.java
+```
+ String configPath = getPath(configXMLPath);
+        File configFile = new File(configPath);
+        if (configFile.exists()) {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            org.apache.hadoop.conf.Configuration config = HBaseConfiguration.create();
+```
+- Disable access to external entities in XML parsing.
+- XML specification allows the use of entities that can be internal or external (file system / network access ...)  
+    - This could lead to vulnerabilities such as confidential file disclosures or SSRFs.
+- It is recommended to disable access to external entities and network access in general.
