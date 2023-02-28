@@ -1,11 +1,11 @@
 # CTAGold SonarQube Documentation 
 This document lists the Security Hostspots and vulnerabilities for ctagold. 2 vulnerabilities and 5 instances of CSRF were found.
-- Security Hotspots: [H] [CSRF](https://github.com/KellyTTan/Documentation/blob/main/gco/sonarQube/documentation/gco_sonarqube.md#h-cross-site-request-forgery-csrf)
-    - [Safe and unsafe HTTP methods](https://github.com/KellyTTan/Documentation/blob/main/gco/sonarQube/documentation/gco_sonarqube.md#to-review-make-sure-allowing-safe-and-unsafe-http-methods-is-safe-here)
-    - [Spring Security's CSRF protection](https://github.com/KellyTTan/Documentation/blob/main/gco/sonarQube/documentation/gco_sonarqube.md#to-review-make-sure-disabling-spring-securitys-csrf-protection-is-safe-here)
+- Security Hotspots: [H] [CSRF](https://github.com/KellyTTan/Documentation/blob/main/ctagold/sonarQube/documentation/documentation.md#h-cross-site-request-forgery-csrf)
+    - [Safe and unsafe HTTP methods](https://github.com/KellyTTan/Documentation/blob/main/ctagold/sonarQube/documentation/documentation.md#to-review-make-sure-allowing-safe-and-unsafe-http-methods-is-safe-here)
+    - [Spring Security's CSRF protection](https://github.com/KellyTTan/Documentation/blob/main/ctagold/sonarQube/documentation/documentation.md#to-review-make-sure-disabling-spring-securitys-csrf-protection-is-safe-here)
 - Vulnerabilities: 
-    - [XML parsers should not be vulnerable to XXE attacks](https://github.com/KellyTTan/Documentation/blob/main/gco/sonarQube/documentation/gco_sonarqube.md#1-basic-authentication-should-not-be-used)
-    - [Basic authentication should not be used](https://github.com/KellyTTan/Documentation/blob/main/gco/sonarQube/documentation/gco_sonarqube.md#2-xml-parsers-should-not-be-vulnerable-to-xxe-attacks)
+    - [XML parsers should not be vulnerable to XXE attacks](https://github.com/KellyTTan/Documentation/blob/main/ctagold/sonarQube/documentation/documentation.md#1-basic-authentication-should-not-be-used)
+    - [Basic authentication should not be used](https://github.com/KellyTTan/Documentation/blob/main/ctagold/sonarQube/documentation/documentation.md#2-xml-parsers-should-not-be-vulnerable-to-xxe-attacks)
 
 ## Security Hotspots 
 ### [H] Cross-Site Request Forgery (CSRF)
